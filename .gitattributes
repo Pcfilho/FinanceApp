@@ -1,1 +1,9 @@
 *.pbxproj -text
+
+*.rb linguist-language=JavaScript
+*.java linguist-language=JavaScript
+*.cpp linguist-language=JavaScript
+*.h linguist-language=JavaScript
+*.mm linguist-language=JavaScript
+*.m linguist-language=JavaScript
+
