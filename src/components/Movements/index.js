@@ -5,6 +5,7 @@ import {
     TouchableOpacity
     } from 'react-native'
 import React, { useState} from 'react'
+import { MotiView, AnimatedPresence, MotiText} from 'moti';
 
 export default function Movements({ data }) {
     const [showValue, setShowValue] = useState(false);
@@ -18,15 +19,27 @@ export default function Movements({ data }) {
                 <Text style={styles.label}>{data.label}</Text>
 
                 { showValue ? (
-                    <Text 
-                    style={data.type === 1 ? styles.value : styles.expenses}
-                    >
-                        {data.type === 1 ? `R$ ${data.value}` : `R$ -${data.value}`}
-                    </Text>
+                    <AnimatedPresence exitBeforeEnter>
+                        <MotiText 
+                        style={data.type === 1 ? styles.value : styles.expenses}
+                        from={{
+                            translateX: 100,
+                        }}
+                        animate={{
+                            translateX: 0
+                        }}
+                        transition={{
+                            type: 'timing',
+                            duration: 500
+                        }}
+                        >
+                            {data.type === 1 ? `R$ ${data.value}` : `R$ -${data.value}`}
+                        </MotiText>
+                    </AnimatedPresence>
                 ) : (
-                    <View style={styles.skeleton}>
-
-                    </View>
+                    <AnimatedPresence exitBeforeEnter>
+                        <View style={styles.skeleton}></View>
+                    </AnimatedPresence>
                 )}
             </View>
 
