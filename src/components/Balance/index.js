@@ -6,11 +6,11 @@ import {
 import React from 'react'
 import Item from '../Item';
 
-export default function Balance() {
+export default function Balance({ saldo, gastos}) {
   return (
     <View style={styles.container}>
-        <Item name='Saldo' value='15.000,00'/>
-        <Item name='Gastos' value='3.000,00'/>
+        <Item name='Saldo' value={saldo}/>
+        <Item name='Gastos' value={gastos}/>
     </View>
   );
 }
@@ -30,5 +30,4 @@ const styles = StyleSheet.create({
         paddingBottom: 22,
         zIndex: 99,
     }
-
 })
