@@ -2,7 +2,8 @@ import { StyleSheet, Text, View, FlatList } from 'react-native';
 
 import Header from '../../components/Header'
 import Balance from '../../components/Balance'
-import Movements from '../../components/Movements';
+import Movements from '../../components/Movements'
+import Actions from '../../components/Actions';
 
 const list = [
   {
@@ -35,6 +36,7 @@ export default function Home() {
       
       <Balance saldo='9.250.90' gastos='-527,00'/>
 
+      <Actions></Actions>
       <Text style={styles.title}>Ultimas movimentações</Text>
 
       <FlatList
@@ -62,7 +64,9 @@ const styles = StyleSheet.create({
     marginTop: 14,
   },
   list: {
+    marginTop: 14,
     marginStart: 14,
     marginEnd: 14
   },
+
 });
